@@ -1,32 +1,32 @@
 package ATV2;
 
 public class Emprestimo {
-    private Pessoa pessoa;
-    private Material material;
+    private TomadorEmprestimo tomadorEmprestimo;
+    private ItemEmprestavel itemEmprestavel;
     private String dataEmprestimo;
     private String dataDevolucao;
 
-    public Emprestimo(Pessoa pessoa, Material material, String dataEmprestimo, String dataDevolucao) {
-        this.pessoa = pessoa;
-        this.material = material;
+    public Emprestimo(TomadorEmprestimo tomadorEmprestimo, ItemEmprestavel itemEmprestavel, String dataEmprestimo, String dataDevolucao) {
+        this.tomadorEmprestimo = tomadorEmprestimo;
+        this.itemEmprestavel = itemEmprestavel;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
     }
 
-    public Pessoa getPessoa() {
-        return this.pessoa;
+    public TomadorEmprestimo getTomadorEmprestimo() {
+        return this.tomadorEmprestimo;
     }
 
-    public void setPessoa(Pessoa Pessoa) {
-        this.pessoa = Pessoa;
+    public void setTomadorEmprestimo(TomadorEmprestimo TomadorEmprestimo) {
+        this.tomadorEmprestimo = TomadorEmprestimo;
     }
 
-    public Material getMaterial() {
-        return this.material;
+    public ItemEmprestavel getItemEmprestavel() {
+        return this.itemEmprestavel;
     }
 
-    public void setMaterial(Material Material) {
-        this.material = Material;
+    public void setItemEmprestavel(ItemEmprestavel ItemEmprestavel) {
+        this.itemEmprestavel = ItemEmprestavel;
     }
 
     public String getDataEmprestimo() {
@@ -48,9 +48,9 @@ public class Emprestimo {
     public void exibirDetalhes(){
         System.out.println("Data do emprestimo: " + this.dataEmprestimo);
         System.out.println("Data de devolução: " + this.dataDevolucao);
-        System.out.println("Pessoa vinculada");
-        this.pessoa.exibirInfo();
-        System.out.println("Material vinculado");
-        this.material.descricao();
+        System.out.println("TomadorEmprestimo vinculada");
+        this.tomadorEmprestimo.exibirInfo();
+        System.out.println("ItemEmprestavel vinculado");
+        this.itemEmprestavel.descricao();
     }
 }

@@ -1,8 +1,9 @@
 package ATV2;
-public abstract class Pessoa {
+public abstract class Pessoa implements TomadorEmprestimo {
     private String nome;
     private String email;
 
+    @Override
     public abstract void exibirInfo();
 
     public Pessoa(String nome, String email){
