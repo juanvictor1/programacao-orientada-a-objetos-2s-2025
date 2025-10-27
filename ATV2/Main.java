@@ -10,7 +10,7 @@ public class Main {
         ArrayList<Material> materiais = new ArrayList<>();
         ArrayList<Emprestimo> emprestimos = new ArrayList<>();
 
-        // Exemplo instituição
+        // Exemplo fixo
         Instituicao UCB = new Instituicao( "UCB", "123456", "Brasília-DF");
         Colecao c1 = new Colecao("Joao pintor", 3);
         Emprestimo e1 = new Emprestimo(UCB, c1, "20/10/2025", "25/10/2025");
@@ -42,8 +42,17 @@ public class Main {
                     System.out.print("Matrícula: ");
                     int matricula = sc.nextInt();
                     sc.nextLine();
-                    pessoas.add(new Usuario(nomeU, emailU, matricula));
-                    System.out.println("Usuário cadastrado com sucesso!\n");
+                    try {
+                        pessoas.add(new Usuario(nomeU, emailU, matricula));
+                        System.out.println("Usuário cadastrado com sucesso!\n");
+                    } catch (NomeInvalidoException e) {
+                        System.out.println("Nome invalido.");
+                    } catch (EmailInvalidoException e) {
+                        System.out.println("Email invalido.");
+                    } catch (Exception e) {
+                        System.out.println("Algo deu errado, tente novamente.");
+                    }
+                    
                     break;
 
                 case 2:
@@ -121,10 +130,16 @@ public class Main {
                     System.out.print("Data de devolução: ");
                     String dataD = sc.nextLine();
 
-                    emprestimos.add(new Emprestimo(pessoas.get(idxUsuario),
+                    try {
+                        emprestimos.add(new Emprestimo(pessoas.get(idxUsuario),
                                                    materiais.get(idxMaterial),
                                                    dataE, dataD));
-                    System.out.println("Empréstimo cadastrado!\n");
+                        System.out.println("Empréstimo cadastrado!\n");
+                    } catch (IndexOutOfBoundsException e) {
+                        System.out.println("Escolha uma opção valida na lista de pessoas e materiais!");
+                    }
+                    
+                    
                     break;
 
                 case 8:
