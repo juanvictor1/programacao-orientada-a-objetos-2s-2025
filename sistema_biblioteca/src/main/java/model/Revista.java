@@ -1,5 +1,4 @@
-package ATV2;
-
+package model;
 public class Revista extends Material{
     private Integer edicao;
 
@@ -15,11 +14,11 @@ public class Revista extends Material{
     public void setEdicao(Integer edicao) {
         this.edicao = edicao;
     }
-    
+
     @Override
-    public void descricao(){
-        System.out.println("Titulo: " + this.getTitulo());
+    public void descricao() {
+        System.out.println("Título: " + this.getTitulo());
         System.out.println("Ano de publicação: " + this.getAnoPublicacao());
-        System.out.println("Edicao: " + this.edicao);
+        System.out.println("Edição: " + this.edicao);
     }
 }

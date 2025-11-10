@@ -1,9 +1,10 @@
-package ATV2;
+package model;
 
-public class Colecao implements ItemEmprestavel {
+import interfaces.ItemEmprestavel;
+
+public class Colecao implements ItemEmprestavel{
     private String proprietario;
     private Integer qtItens;
-
 
     public Colecao(String proprietario, Integer qtItens) {
         this.proprietario = proprietario;
@@ -26,9 +27,8 @@ public class Colecao implements ItemEmprestavel {
         this.qtItens = qtItens;
     }
 
-    @Override
     public void descricao(){
-        System.out.println("Proprietario: " + this.proprietario);
-        System.out.println("Quantidade de itens: " + this.qtItens);
+        System.out.println("Proprietário: " + this.proprietario);
+        System.out.println("Qt. Itens: " + this.qtItens);
     }
 }

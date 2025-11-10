@@ -1,20 +1,35 @@
-package ATV2;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import dao.PessoaDAO;
+import model.Colecao;
+import model.Emprestimo;
+import model.Funcionario;
+import model.Instituicao;
+import model.Livro;
+import model.Material;
+import model.Pessoa;
+import model.Revista;
+import model.Usuario;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        ArrayList<Pessoa> pessoas = new ArrayList<>();
+        PessoaDAO pessoaDAO = new PessoaDAO();
+
+        ArrayList<Pessoa> pessoas = pessoaDAO.getTodasPessoas();
         ArrayList<Material> materiais = new ArrayList<>();
         ArrayList<Emprestimo> emprestimos = new ArrayList<>();
 
-        // Exemplo fixo
-        Instituicao UCB = new Instituicao( "UCB", "123456", "Brasília-DF");
-        Colecao c1 = new Colecao("Joao pintor", 3);
-        Emprestimo e1 = new Emprestimo(UCB, c1, "20/10/2025", "25/10/2025");
+
+        // Exemplo Fixo
+        Instituicao UCB = new Instituicao("UCB", "123456", "Brasilia-DF");
+        Colecao c1 = new Colecao("Pedro", 10);
+        Emprestimo e1 = new Emprestimo(UCB, c1, "20/10/2025", "21/10/2025");
         emprestimos.add(e1);
+
 
         int opcao;
 
@@ -42,17 +57,10 @@ public class Main {
                     System.out.print("Matrícula: ");
                     int matricula = sc.nextInt();
                     sc.nextLine();
-                    try {
-                        pessoas.add(new Usuario(nomeU, emailU, matricula));
-                        System.out.println("Usuário cadastrado com sucesso!\n");
-                    } catch (NomeInvalidoException e) {
-                        System.out.println("Nome invalido.");
-                    } catch (EmailInvalidoException e) {
-                        System.out.println("Email invalido.");
-                    } catch (Exception e) {
-                        System.out.println("Algo deu errado, tente novamente.");
-                    }
-                    
+                    Usuario u1 = new Usuario(nomeU, emailU, matricula);
+                    pessoas.add(u1);
+                    pessoaDAO.salvarPessoa(u1);
+                    System.out.println("Usuário cadastrado com sucesso!\n");
                     break;
 
                 case 2:
@@ -62,7 +70,9 @@ public class Main {
                     String emailF = sc.nextLine();
                     System.out.print("Cargo: ");
                     String cargo = sc.nextLine();
-                    pessoas.add(new Funcionario(nomeF, emailF, cargo));
+                    Funcionario f1 = new Funcionario(nomeF, emailF, cargo);
+                    pessoas.add(f1);
+                    pessoaDAO.salvarPessoa(f1);
                     System.out.println("Funcionário cadastrado com sucesso!\n");
                     break;
 
@@ -130,16 +140,10 @@ public class Main {
                     System.out.print("Data de devolução: ");
                     String dataD = sc.nextLine();
 
-                    try {
-                        emprestimos.add(new Emprestimo(pessoas.get(idxUsuario),
+                    emprestimos.add(new Emprestimo(pessoas.get(idxUsuario),
                                                    materiais.get(idxMaterial),
                                                    dataE, dataD));
-                        System.out.println("Empréstimo cadastrado!\n");
-                    } catch (IndexOutOfBoundsException e) {
-                        System.out.println("Escolha uma opção valida na lista de pessoas e materiais!");
-                    }
-                    
-                    
+                    System.out.println("Empréstimo cadastrado!\n");
                     break;
 
                 case 8:

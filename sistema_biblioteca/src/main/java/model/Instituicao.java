@@ -1,17 +1,17 @@
-package ATV2;
+package model;
 
-public class Instituicao implements TomadorEmprestimo {
+import interfaces.TomadorEmprestimo;
+
+public class Instituicao implements TomadorEmprestimo{
     private String nome;
     private String cnpj;
-    private String cidade;
-
+    private String cidade; 
 
     public Instituicao(String nome, String cnpj, String cidade) {
         this.nome = nome;
         this.cnpj = cnpj;
         this.cidade = cidade;
     }
-
 
     public String getNome() {
         return this.nome;
@@ -37,11 +37,9 @@ public class Instituicao implements TomadorEmprestimo {
         this.cidade = cidade;
     }
 
-    @Override
     public void exibirInfo(){
         System.out.println("Nome: " + this.nome);
         System.out.println("CNPJ: " + this.cnpj);
         System.out.println("Cidade: " + this.cidade);
     }
-
 }

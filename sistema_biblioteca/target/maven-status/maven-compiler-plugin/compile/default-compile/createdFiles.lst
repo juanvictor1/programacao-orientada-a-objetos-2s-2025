@@ -1,0 +1,13 @@
+model\Emprestimo.class
+dao\PessoaDAO.class
+model\Colecao.class
+model\Funcionario.class
+model\Revista.class
+model\Usuario.class
+interfaces\TomadorEmprestimo.class
+model\Pessoa.class
+Main.class
+model\Instituicao.class
+interfaces\ItemEmprestavel.class
+model\Livro.class
+model\Material.class

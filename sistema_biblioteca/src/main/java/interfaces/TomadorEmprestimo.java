@@ -1,4 +1,4 @@
-package ATV2;
+package interfaces;
 
 public interface TomadorEmprestimo {
     public void exibirInfo();

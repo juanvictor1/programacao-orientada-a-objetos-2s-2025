@@ -1,13 +1,12 @@
-package ATV2;
-
+package model;
 public class Livro extends Material{
     private String autor;
 
-    public Livro( String titulo, Integer anoPublicacao, String autor){
-        super( titulo, anoPublicacao);
+    public Livro(String titulo, Integer anoPublicacao, String autor){
+        super(titulo, anoPublicacao);
         this.autor = autor;
     }
-    
+
     public String getAutor() {
         return this.autor;
     }
@@ -17,10 +16,9 @@ public class Livro extends Material{
     }
 
     @Override
-    public void descricao(){
-        System.out.println("Titulo: " + this.getTitulo());
+    public void descricao() {
+        System.out.println("Título: " + this.getTitulo());
         System.out.println("Ano de publicação: " + this.getAnoPublicacao());
         System.out.println("Autor: " + this.autor);
     }
-
 }

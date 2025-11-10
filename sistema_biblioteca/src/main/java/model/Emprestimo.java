@@ -1,4 +1,7 @@
-package ATV2;
+package model;
+
+import interfaces.ItemEmprestavel;
+import interfaces.TomadorEmprestimo;
 
 public class Emprestimo {
     private TomadorEmprestimo tomadorEmprestimo;
@@ -17,16 +20,16 @@ public class Emprestimo {
         return this.tomadorEmprestimo;
     }
 
-    public void setTomadorEmprestimo(TomadorEmprestimo TomadorEmprestimo) {
-        this.tomadorEmprestimo = TomadorEmprestimo;
+    public void setTomadorEmprestimo(TomadorEmprestimo tomadorEmprestimo) {
+        this.tomadorEmprestimo = tomadorEmprestimo;
     }
 
     public ItemEmprestavel getItemEmprestavel() {
         return this.itemEmprestavel;
     }
 
-    public void setItemEmprestavel(ItemEmprestavel ItemEmprestavel) {
-        this.itemEmprestavel = ItemEmprestavel;
+    public void setItemEmprestavel(ItemEmprestavel itemEmprestavel) {
+        this.itemEmprestavel = itemEmprestavel;
     }
 
     public String getDataEmprestimo() {
@@ -46,11 +49,11 @@ public class Emprestimo {
     }
 
     public void exibirDetalhes(){
-        System.out.println("Data do emprestimo: " + this.dataEmprestimo);
-        System.out.println("Data de devolução: " + this.dataDevolucao);
+        System.out.println("Data do empréstimo: " + this.dataEmprestimo);
+        System.out.println("Data da devolução: " + this.dataDevolucao);
         System.out.println("TomadorEmprestimo vinculada");
         this.tomadorEmprestimo.exibirInfo();
-        System.out.println("ItemEmprestavel vinculado");
+        System.out.println("ItemEmprestavel vinculada");
         this.itemEmprestavel.descricao();
     }
 }

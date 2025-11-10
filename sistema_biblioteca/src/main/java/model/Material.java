@@ -1,6 +1,8 @@
-package ATV2;
+package model;
 
-public abstract class Material implements ItemEmprestavel {
+import interfaces.ItemEmprestavel;
+
+public abstract class Material implements ItemEmprestavel{
     private String titulo;
     private Integer anoPublicacao;
 
